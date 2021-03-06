@@ -122,8 +122,6 @@ function buildCharts(sample) {
     // 2. Create the layout for the bubble chart.
     var bubbleLayout = {
       title: "Bacteria Culture Per Sample",
-      margin: {},
-      width: 1000,
       hovermode:'closest',
       xaxis: {title: {text: 'OTU ID'}}
     };
@@ -135,25 +133,26 @@ function buildCharts(sample) {
     var washBelly = washing[0].wfreq;
     console.log(washBelly)
     // 4. Create the trace for the gauge chart.
-    var gaugeData = [{
-      domain:{ x: [0, 1], y: [0, 1]},
-      value: washBelly,
-      title: {text: "<b>Belly Button Washing Frequency</b><br>Scrubs per Week"},
-      type: "indicator",
-      dtick: 1,
-      mode: "gauge+number",
-      gauge: {
-        axis: { range: [null, 10]},
-        bar:{color:"black"},
-        steps:[
-          {range: [0,2], color:"red"},
-          {range: [2,4], color:"orange"},
-          {range: [4,6], color: "yellow"},
-          {range: [6,8], color: "lime"},
-          {range: [8,10], color:"green"}
-        ]
+    var gaugeData = [
+      {
+        domain:{ x: [0, 1], y: [0, 1]},
+        value: washBelly,
+        title: {text: "<b>Belly Button Washing Frequency</b><br>Scrubs per Week"},
+        type: "indicator",
+        mode: "gauge+number",
+        gauge: {
+          axis: { range: [null, 10]},
+          bar:{color:"black"},
+          steps:[
+            {range: [0,2], color:"red"},
+            {range: [2,4], color:"orange"},
+            {range: [4,6], color: "yellow"},
+            {range: [6,8], color: "lime"},
+            {range: [8,10], color:"green"}
+          ]
+        }
       }
-    }];
+    ];
     
     // 5. Create the layout for the gauge chart.
     var gaugeLayout = { 
